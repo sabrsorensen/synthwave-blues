@@ -7,7 +7,7 @@ const diff = require('semver/functions/diff');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	this.extensionName = 'RobbOwen.synthwave-vscode';
+	this.extensionName = 'sabrsorensen.synthwave-blues';
 	this.cntx = context;
 	this.extension = vscode.extensions.getExtension(this.extensionName);
 	if (this.extension) {
@@ -31,11 +31,11 @@ function activate(context) {
 		}
 
 	}
-	
-	const config = vscode.workspace.getConfiguration("synthwave84");
+
+	const config = vscode.workspace.getConfiguration("synthwave84blues");
 
 	let disableGlow = config && config.disableGlow ? !!config.disableGlow : false;
-	
+
 	let brightness = parseFloat(config.brightness) > 1 ? 1 : parseFloat(config.brightness);
 	brightness = brightness < 0 ? 0 : brightness;
 	brightness = isNaN(brightness) ? 0.45 : brightness;
@@ -43,7 +43,7 @@ function activate(context) {
 	const parsedBrightness = Math.floor(brightness * 255).toString(16).toUpperCase();
 	let neonBrightness = parsedBrightness;
 
-	let disposable = vscode.commands.registerCommand('synthwave84.enableNeon', function () {
+	let disposable = vscode.commands.registerCommand('synthwave84blues.enableNeon', function () {
 
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
@@ -58,8 +58,8 @@ function activate(context) {
 		const templateFile =
 				base +
 				(isWin
-					? "\\electron-browser\\workbench\\neondreams.js"
-					: "/electron-browser/workbench/neondreams.js");
+					? "\\electron-browser\\workbench\\blueneondreams.js"
+					: "/electron-browser/workbench/blueneondreams.js");
 
 		try {
 
@@ -72,22 +72,22 @@ function activate(context) {
 			const themeWithChrome = themeWithGlow.replace(/\[CHROME_STYLES\]/g, chromeStyles);
 			const finalTheme = themeWithChrome.replace(/\[NEON_BRIGHTNESS\]/g, neonBrightness);
 			fs.writeFileSync(templateFile, finalTheme, "utf-8");
-			
+
 			// modify workbench html
 			const html = fs.readFileSync(htmlFile, "utf-8");
 
 			// check if the tag is already there
-			const isEnabled = html.includes("neondreams.js");
+			const isEnabled = html.includes("blueneondreams.js");
 
 			if (!isEnabled) {
 				// delete synthwave script tag if there
-				let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
+				let output = html.replace(/^.*(<!-- SYNTHWAVE 84 BLUES --><script src="blueneondreams.js"><\/script><!-- BLUE NEON DREAMS -->).*\n?/mg, '');
 				// add script tag
-				output = html.replace(/\<\/html\>/g, `	<!-- SYNTHWAVE 84 --><script src="neondreams.js"></script><!-- NEON DREAMS -->\n`);
+				output = html.replace(/\<\/html\>/g, `	<!-- SYNTHWAVE 84 BLUES --><script src="blueneondreams.js"></script><!-- BLUE NEON DREAMS -->\n`);
 				output += '</html>';
-	
+
 				fs.writeFileSync(htmlFile, output, "utf-8");
-				
+
 				vscode.window
 					.showInformationMessage("Neon Dreams enabled. VS code must reload for this change to take effect. Code may display a warning that it is corrupted, this is normal. You can dismiss this message by choosing 'Don't show this again' on the notification.", { title: "Restart editor to complete" })
 					.then(function(msg) {
@@ -112,9 +112,9 @@ function activate(context) {
 		}
 	});
 
-	let disable = vscode.commands.registerCommand('synthwave84.disableNeon', uninstall);
-	let whatsNew = vscode.commands.registerCommand('synthwave84.whatsNew', showUpdatePage);
-	
+	let disable = vscode.commands.registerCommand('synthwave84blues.disableNeon', uninstall);
+	//let whatsNew = vscode.commands.registerCommand('synthwave84blues.whatsNew', showUpdatePage);
+
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);
 	context.subscriptions.push(whatsNew);
@@ -155,11 +155,11 @@ function uninstall() {
 	const html = fs.readFileSync(htmlFile, "utf-8");
 
 	// check if the tag is already there
-	const isEnabled = html.includes("neondreams.js");
+	const isEnabled = html.includes("blueneondreams.js");
 
 	if (isEnabled) {
 		// delete synthwave script tag if there
-		let output = html.replace(/^.*(<!-- SYNTHWAVE 84 --><script src="neondreams.js"><\/script><!-- NEON DREAMS -->).*\n?/mg, '');
+		let output = html.replace(/^.*(<!-- SYNTHWAVE 84 BLUES --><script src="blueneondreams.js"><\/script><!-- BLUE NEON DREAMS -->).*\n?/mg, '');
 		fs.writeFileSync(htmlFile, output, "utf-8");
 
 		vscode.window
