@@ -17,16 +17,16 @@
 
     if (!disableGlow) {
       /* replace neon red */
-      updatedThemeStyles = updatedThemeStyles.replace(/color: #fe4450;/g, "color: #fff5f6; text-shadow: 0 0 2px #000, 0 0 10px #fc1f2c[NEON_BRIGHTNESS], 0 0 5px #fc1f2c[NEON_BRIGHTNESS], 0 0 25px #fc1f2c[NEON_BRIGHTNESS];");
+      updatedThemeStyles = updatedThemeStyles.replace(/color: #d64a53;/g, "color: #ff3341; text-shadow: 0 0 2px #ff4a00, 0 0 3px #fc1f2c[NEON_BRIGHTNESS], 0 0 5px #fc1f2c[NEON_BRIGHTNESS];");
 
       /* replace yellow */
-      updatedThemeStyles = updatedThemeStyles.replace(/color: #fede5d;/g, "color: #f4eee4; text-shadow: 0 0 2px #393a33, 0 0 8px #f39f05[NEON_BRIGHTNESS], 0 0 2px #f39f05[NEON_BRIGHTNESS];");
+      updatedThemeStyles = updatedThemeStyles.replace(/color: #fede5d;/g, "color: #f9faaa; text-shadow: 0 0 2px #f9faaa, 0 0 3px #f39f05[NEON_BRIGHTNESS], 0 0 5px #f39f05[NEON_BRIGHTNESS], 0 0 8px #f39f05[NEON_BRIGHTNESS];");
 
       /* replace green */
       updatedThemeStyles = updatedThemeStyles.replace(/color: #72f1b8;/g, "color: #72f1b8; text-shadow: 0 0 2px #100c0f, 0 0 10px #257c55[NEON_BRIGHTNESS], 0 0 35px #212724[NEON_BRIGHTNESS];");
 
       /* replace neon blue */
-      updatedThemeStyles = updatedThemeStyles.replace(/color: #36f9f6;/g, "color: #fdfdfd; text-shadow: 0 0 2px #001716, 0 0 3px #03edf9[NEON_BRIGHTNESS], 0 0 5px #03edf9[NEON_BRIGHTNESS], 0 0 8px #03edf9[NEON_BRIGHTNESS];");
+      updatedThemeStyles = updatedThemeStyles.replace(/color: #36f9f6;/g, "color: #3688f6; text-shadow: 0 0 2px #001716, 0 0 3px #36bbf9[NEON_BRIGHTNESS], 0 0 5px #36bbf9[NEON_BRIGHTNESS], 0 0 8px #36bbf9[NEON_BRIGHTNESS];");
 
       /* replace light blue */
       updatedThemeStyles = updatedThemeStyles.replace(/color: #7ed0ff;/g, "color: #15f4ee; text-shadow: 0 0 2px #001716, 0 0 3px #03edf9[NEON_BRIGHTNESS], 0 0 5px #03edf9[NEON_BRIGHTNESS], 0 0 8px #03edf9[NEON_BRIGHTNESS];");

@@ -7,7 +7,7 @@
     "foreground": "#ffffff",
     "widget.shadow": "#2a2139",
     "selection.background": "#ffffff20",
-    "errorForeground": "#fe4450",
+    "errorForeground": "#d64a53",
     "textLink.activeForeground": "#7ed0ff",
     "textLink.foreground": "#4ce9d9",
     "button.background": "#004D85",
@@ -15,8 +15,8 @@
     "dropdown.listBackground": "#2a2139",
     "input.background": "#002139",
     "inputOption.activeBorder": "#7ed0ff99",
-    "inputValidation.errorBackground": "#fe445080",
-    "inputValidation.errorBorder": "#fe445000",
+    "inputValidation.errorBackground": "#d64a5380",
+    "inputValidation.errorBorder": "#d64a5300",
     "scrollbar.shadow": "#2a2139",
     "scrollbarSlider.activeBackground": "#9d8bca20",
     "scrollbarSlider.background": "#9d8bca30",
@@ -35,7 +35,7 @@
     "list.inactiveSelectionBackground": "#ffffff20",
     "list.inactiveSelectionForeground": "#ffffff",
     "list.inactiveFocusBackground": "#2a213999",
-    "list.errorForeground": "#fe4450E6",
+    "list.errorForeground": "#d64a53E6",
     "list.warningForeground": "#72f1b8bb",
     "activityBar.background": "#001520",
     "activityBar.dropBorder": "#00294f66",
@@ -79,16 +79,16 @@
     "editorOverviewRuler.findMatchForeground": "#D1861699",
     "editorOverviewRuler.modifiedForeground": "#b893ce99",
     "editorOverviewRuler.addedForeground": "#09f7a099",
-    "editorOverviewRuler.deletedForeground": "#fe445099",
-    "editorOverviewRuler.errorForeground": "#fe4450dd",
+    "editorOverviewRuler.deletedForeground": "#d64a5399",
+    "editorOverviewRuler.errorForeground": "#d64a53dd",
     "editorOverviewRuler.warningForeground": "#72f1b8cc",
-    "editorError.foreground": "#fe4450",
+    "editorError.foreground": "#d64a53",
     "editorWarning.foreground": "#72f1b8cc",
     "editorGutter.modifiedBackground": "#b893ce8f",
     "editorGutter.addedBackground": "#206d4bd6",
     "editorGutter.deletedBackground": "#fa2e46a4",
     "diffEditor.insertedTextBackground": "#0beb9935",
-    "diffEditor.removedTextBackground": "#fe445035",
+    "diffEditor.removedTextBackground": "#d64a5335",
     "editorWidget.background": "#171520DC",
     "editorWidget.border": "#ffffff22",
     "editorWidget.resizeBorder": "#ffffff44",
@@ -115,17 +115,17 @@
     "extensionButton.prominentHoverBackground": "#7ed0ff",
     "pickerGroup.foreground": "#4ce9d9ea",
     "terminal.foreground": "#ffffff",
-    "terminal.ansiBlue": "#03edf9",
+    "terminal.ansiBlue": "#3688f6",
     "terminal.ansiBrightBlue": "#03edf9",
     "terminal.ansiBrightCyan": "#03edf9",
     "terminal.ansiBrightGreen": "#72f1b8",
     "terminal.ansiBrightMagenta": "#7ed0ff",
-    "terminal.ansiBrightRed": "#fe4450",
+    "terminal.ansiBrightRed": "#d64a53",
     "terminal.ansiBrightYellow": "#fede5d",
     "terminal.ansiCyan": "#03edf9",
     "terminal.ansiGreen": "#72f1b8",
     "terminal.ansiMagenta": "#7ed0ff",
-    "terminal.ansiRed": "#fe4450",
+    "terminal.ansiRed": "#d64a53",
     "terminal.ansiYellow": "#f97e72",
     "terminal.selectionBackground": "#ffffff20",
     "terminalCursor.background": "#ffffff",
@@ -133,13 +133,13 @@
     "debugToolBar.background": "#003465",
     "walkThrough.embeddedEditorBackground": "#232530",
     "gitDecoration.modifiedResourceForeground": "#0093ceee",
-    "gitDecoration.deletedResourceForeground": "#fe4450",
+    "gitDecoration.deletedResourceForeground": "#d64a53",
     "gitDecoration.addedResourceForeground": "#72f1b8cc",
     "gitDecoration.untrackedResourceForeground": "#72f1b8",
     "gitDecoration.ignoredResourceForeground": "#ffffff59",
     "minimapGutter.addedBackground": "#09f7a099",
     "minimapGutter.modifiedBackground": "#0093ce",
-    "minimapGutter.deletedBackground": "#fe4450",
+    "minimapGutter.deletedBackground": "#d64a53",
     "breadcrumbPicker.background": "#232530"
   },
   "tokenColors": [
@@ -188,7 +188,7 @@
       "name": "Language variable",
       "scope": "variable.language",
       "settings": {
-        "foreground": "#fe4450",
+        "foreground": "#d64a53",
         "fontStyle": "bold"
       }
     },
@@ -248,7 +248,7 @@
       "name": "Entity",
       "scope": "entity.name",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -271,14 +271,14 @@
       "name": "Tag attribute",
       "scope": "entity.other.attribute-name",
       "settings": {
-        "foreground": "#fede5d"
+        "foreground": "#ffd940"
       }
     },
     {
       "name": "Tag attribute HTML",
       "scope": "entity.other.attribute-name.html",
       "settings": {
-        "foreground": "#fede5d",
+        "foreground": "#ffe375",
         "fontStyle": "italic"
       }
     },
@@ -289,7 +289,7 @@
         "meta.attribute.class.html"
       ],
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -371,7 +371,7 @@
       "name": "Support",
       "scope": "support",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -481,7 +481,7 @@
       "name": "CSS support functions (rgb)",
       "scope": "support.function.misc.css",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -551,7 +551,7 @@
       "name": "C# storage type",
       "scope": "storage.type.cs",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -593,7 +593,7 @@
       "name": "C storage modifier",
       "scope": "storage.modifier.c",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -625,7 +625,7 @@
       "name": "C++ constant modifier",
       "scope": "storage.modifier.specifier.const.cpp",
       "settings": {
-        "foreground": "#fe4450"
+        "foreground": "#d64a53"
       }
     },
     {
@@ -707,7 +707,7 @@
         "meta.metadata.map.clojure"
       ],
       "settings": {
-        "foreground": "#fe4450",
+        "foreground": "#d64a53",
         "fontStyle": "italic"
       }
     },
