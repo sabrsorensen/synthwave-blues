@@ -2,13 +2,13 @@
   "name": "synthwave-blues",
   "displayName": "SynthWave '84 Blues",
   "description": "A blue twist on robb0wen's SynthWave '84, a Synthwave-inspired colour theme to satisfy your neon dreams",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Sam Sorensen",
   "publisher": "sabrsorensen",
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sabrsorensen/synthwave-vscode"
+    "url": "https://github.com/sabrsorensen/synthwave-blues-vscode-theme"
   },
   "engines": {
     "vscode": "^1.33.0"
