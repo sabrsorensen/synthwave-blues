@@ -63,5 +63,8 @@
   },
   "dependencies": {
     "semver": "^7.3.5"
+  },
+  "scripts": {
+    "deploy": "vsce publish --yarn"
   }
 }
