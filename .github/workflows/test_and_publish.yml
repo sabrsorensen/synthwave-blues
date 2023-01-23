@@ -5,10 +5,7 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,8 +15,8 @@ jobs:
         with:
           node-version: 14.x
 
-      - run: npm install -g vsce
-        name: Install vsce
+      - name: Install vsce
+        run: npm install -g vsce
 
       - name: Install dependencies
         run: npm install
