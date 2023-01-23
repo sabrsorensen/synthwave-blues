@@ -9,30 +9,6 @@ const diff = require('semver/functions/diff');
 function activate(context) {
 	this.extensionName = 'sabrsorensen.synthwave-blues';
 	this.cntx = context;
-	this.extension = vscode.extensions.getExtension(this.extensionName);
-	if (this.extension) {
-		// grab current version number
-		this.version = this.extension.packageJSON.version;
-
-		// grab last recorded version
-		const prevVersion = context.globalState.get(`${this.extensionName}.version`);
-
-		if (prevVersion) {
-			// check it has changed.
-			const d = diff(this.version, prevVersion);
-			// show again on major or minor updates
-			if (d == 'major' || d == 'minor') {
-				// disable update page until there are updates to be shown
-				// showUpdatePage();
-				context.globalState.update(`${this.extensionName}.version`, this.version);
-			}
-		} else {
-			// disable update page until there are updates to be shown
-			// showUpdatePage();
-			context.globalState.update(`${this.extensionName}.version`, this.version);
-		}
-
-	}
 
 	const config = vscode.workspace.getConfiguration("synthwave84blues");
 
@@ -50,18 +26,19 @@ function activate(context) {
 		const isWin = /^win/.test(process.platform);
 		const appDir = path.dirname(require.main.filename);
 		const base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+		const electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
 
 		const htmlFile =
 			base +
 			(isWin
-				? "\\electron-browser\\workbench\\workbench.html"
-				: "/electron-browser/workbench/workbench.html");
+				? "\\"+electronBase+"\\workbench\\workbench.html"
+				: "/"+electronBase+"/workbench/workbench.html");
 
 		const templateFile =
 				base +
 				(isWin
-					? "\\electron-browser\\workbench\\blueneondreams.js"
-					: "/electron-browser/workbench/blueneondreams.js");
+					? "\\"+electronBase+"\\workbench\\blueneondreams.js"
+					: "/"+electronBase+"/workbench/blueneondreams.js");
 
 		try {
 
@@ -105,7 +82,7 @@ function activate(context) {
 			}
 		} catch (e) {
 			if (/ENOENT|EACCES|EPERM/.test(e.code)) {
-				vscode.window.showInformationMessage("You must run VS code with admin priviliges in order to enable Neon Dreams.");
+				vscode.window.showInformationMessage("Neon Dreams was unable to modify the core VS code files needed to launch the extension. You may need to run VS code with admin privileges in order to enable Neon Dreams.");
 				return;
 			} else {
 				vscode.window.showErrorMessage('Something went wrong when starting neon dreams');
@@ -115,28 +92,11 @@ function activate(context) {
 	});
 
 	let disable = vscode.commands.registerCommand('synthwave84blues.disableNeon', uninstall);
-	//let whatsNew = vscode.commands.registerCommand('synthwave84blues.whatsNew', showUpdatePage);
 
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disable);
-	context.subscriptions.push(whatsNew);
 }
 exports.activate = activate;
-
-
-function showUpdatePage() {
-		const panel = vscode.window.createWebviewPanel(
-			`synthwave.whatsNew`, // Identifies the type of the webview. Used internally
-			'What\'s new for Synthwave \'84', // Title of the panel displayed to the user
-			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-			{ enableScripts: !0 } // Webview options. More on these later.
-		);
-
-		const viewPath = path.join(this.cntx.extensionPath, "whats-new", "view.html");
-		const viewResourcePath = panel.webview.asWebviewUri(viewPath);
-		const htmlContent = fs.readFileSync(viewPath, "utf-8");
-		panel.webview.html = htmlContent;
-}
 
 // this method is called when your extension is deactivated
 function deactivate() {
@@ -147,11 +107,13 @@ function uninstall() {
 	var isWin = /^win/.test(process.platform);
 	var appDir = path.dirname(require.main.filename);
 	var base = appDir + (isWin ? "\\vs\\code" : "/vs/code");
+	var electronBase = isVSCodeBelowVersion("1.70.0") ? "electron-browser" : "electron-sandbox";
+
 	var htmlFile =
 		base +
 		(isWin
-			? "\\electron-browser\\workbench\\workbench.html"
-			: "/electron-browser/workbench/workbench.html");
+			? "\\"+electronBase+"\\workbench\\workbench.html"
+			: "/"+electronBase+"/workbench/workbench.html");
 
 	// modify workbench html
 	const html = fs.readFileSync(htmlFile, "utf-8");
@@ -172,6 +134,22 @@ function uninstall() {
 	} else {
 		vscode.window.showInformationMessage('Neon dreams isn\'t running.');
 	}
+}
+
+// Returns true if the VS Code version running this extension is below the
+// version specified in the "version" parameter. Otherwise returns false.
+function isVSCodeBelowVersion(version) {
+	const vscodeVersion = vscode.version;
+	const vscodeVersionArray = vscodeVersion.split('.');
+	const versionArray = version.split('.');
+
+	for (let i = 0; i < versionArray.length; i++) {
+		if (vscodeVersionArray[i] < versionArray[i]) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 module.exports = {
