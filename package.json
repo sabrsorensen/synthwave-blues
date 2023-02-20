@@ -2,7 +2,7 @@
   "name": "synthwave-blues",
   "displayName": "SynthWave '84 Blues",
   "description": "A blue twist on robb0wen's SynthWave '84, a Synthwave-inspired colour theme to satisfy your neon dreams",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Sam Sorensen",
   "publisher": "sabrsorensen",
   "icon": "icon.png",
@@ -21,6 +21,9 @@
   ],
   "categories": [
     "Themes"
+  ],
+  "extensionKind": [
+    "ui"
   ],
   "activationEvents": [
     "onCommand:synthwave84blues.enableNeon",
